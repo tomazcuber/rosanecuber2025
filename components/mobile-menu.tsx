@@ -9,19 +9,19 @@ export function MobileMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="outline" size="icon">
+        <Button variant="ghost" size="icon">
           <MenuIcon className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-        <div className="flex flex-col gap-4 pt-6">
-          <Button variant="ghost" className="w-full justify-start" asChild>
+      <SheetContent side="top" className="w-full h-auto rounded-none border-t-0 border-x-0 pb-4 pt-4 px-4">
+        <div className="flex flex-col gap-2">
+          <Button variant="ghost" className="w-full justify-center text-lg" asChild>
             <Link href="#about">Conheça a Candidata</Link>
           </Button>
-          <Button variant="ghost" className="w-full justify-start" asChild>
+          <Button variant="ghost" className="w-full justify-center text-lg" asChild>
             <Link href="#program">Programa</Link>
           </Button>
-          <Button variant="ghost" className="w-full justify-start" asChild>
+          <Button variant="ghost" className="w-full justify-center text-lg" asChild>
             <Link href="#schedule">Agenda</Link>
           </Button>
         </div>
