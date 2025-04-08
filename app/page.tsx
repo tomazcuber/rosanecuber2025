@@ -151,8 +151,55 @@ export default function CampaignPage() {
           </div>
         </section>
 
+        
+         {/* Donation Section */}
+<section id="donate" className="space-y-8">
+  <h2 className="text-2xl md:text-3xl font-bold">Apoie a Campanha</h2>
+  <Card className="p-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Left Column */}
+      <div className="space-y-4">
+        <h3 className="text-xl md:text-2xl font-bold">Doações Bancárias</h3>
+        <p className="text-muted-foreground">
+          Sua contribuição ajuda a fortalecer nossa campanha
+        </p>
+        <div className="space-y-2">
+          <p className="font-medium">Dados Bancários:</p>
+          <div className="space-y-1 text-sm">
+            <p>Banco: 001 - Banco do Brasil</p>
+            <p>Favorecido: Comitê Rosane Cuber 2025</p>
+            <p>CNPJ: 12.345.678/0001-90</p>
+            <p className="font-mono">Agência: 1234-5</p>
+            <p className="font-mono">Conta Corrente: 98765-4</p>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          * Doações de pessoas jurídicas devem seguir a legislação eleitoral
+        </p>
+      </div>
+
+      {/* Right Column */}
+      <div className="space-y-4">
+        <h3 className="text-xl md:text-2xl font-bold">Doação via PIX</h3>
+        <div className="aspect-square max-w-[300px] mx-auto bg-gray-100 rounded-lg overflow-hidden">
+          <Image
+            src="/pix-qrcode.png"
+            alt="QR Code PIX"
+            width={400}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <p className="text-center text-sm text-muted-foreground">
+          Escaneie o QR Code usando seu aplicativo bancário
+        </p>
+      </div>
+    </div>
+  </Card>
+</section>
+
         {/* Contact Section */}
-        <section className="space-y-8">
+        <section id="contact" className="space-y-8">
           <h2 className="text-2xl md:text-3xl font-bold">Entre em contato</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-3 md:space-y-4">
