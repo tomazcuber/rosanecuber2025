@@ -41,7 +41,7 @@ export default function CampaignPage() {
 
       <main className="container max-w-6xl mx-auto px-4 py-12 space-y-20">
         {/* Video Section */}
-        <section className="space-y-8">
+        {/* <section className="space-y-8">
           <h2 className="text-3xl font-bold text-center">Nossa Visão</h2>
           <div className="aspect-video w-full max-w-4xl mx-auto bg-gray-200 rounded-xl overflow-hidden">
             <iframe
@@ -51,7 +51,7 @@ export default function CampaignPage() {
               allowFullScreen
             />
           </div>
-        </section>
+        </section> */}
 
         {/* About Section */}
         <section id="about" className="space-y-8">
@@ -68,7 +68,7 @@ export default function CampaignPage() {
                   <Button variant="link" className="h-auto p-0" asChild>
                     <Link href={`/documents/apresentação.pdf`} target="_blank">
                       Baixar PDF
-                      </Link>
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
@@ -81,7 +81,7 @@ export default function CampaignPage() {
                   <Button variant="link" className="h-auto p-0" asChild>
                     <Link href={`/documents/paper.pdf`} target="_blank">
                       Baixar PDF
-                      </Link>
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
@@ -123,11 +123,11 @@ export default function CampaignPage() {
             <CardContent className="p-4 flex flex-col md:flex-row justify-between items-center gap-4">
               <h3 className="text-base md:text-xl font-medium text-center md:text-left">
                 Conheça nosso programa completo:
-      </h3>
+              </h3>
               <Button asChild className="w-full md:w-auto">
                 <Link href="/documents/program.pdf" target="_blank">
                   Baixar PDF
-        </Link>
+                </Link>
               </Button>
             </CardContent>
           </Card>
@@ -138,65 +138,131 @@ export default function CampaignPage() {
           <h2 className="text-2xl md:text-3xl font-bold">Agenda da Campanha</h2>
           <div className="relative pl-6 md:pl-8 border-l-2 border-primary">
             {[
-              { date: "2025-03-01", title: "Lançamento da Candidatura" },
-              { date: "2025-03-15", title: "Encontro com a Comunidade" },
-              { date: "2025-04-01", title: "Roda de Conversa" },
-            ].map((event, index) => (
-              <div key={index} className="relative mb-6 md:mb-8 pl-4 md:pl-6">
-                <div className="absolute w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full -left-[7px] md:-left-[9px] top-1" />
-                <time className="text-xs md:text-sm text-gray-500">{event.date}</time>
-                <h3 className="text-base md:text-lg font-medium">{event.title}</h3>
-              </div>
-            ))}
+              {
+                date: "2025-04-10",
+                events: [
+                  {
+                    startTime: "15:00",
+                    endTime: "16:30",
+                    title: "Lançamento da Campanha no Trenzinho"
+                  }
+                ]
+              },
+              {
+                date: "2025-05-09",
+                events: [
+                  {
+                    startTime: "18:00",
+                    title: "Fim do período eleitoral"
+                  }
+                ]
+              },
+            ].map((day, index) => {
+              const [year, month, dayStr] = day.date.split('-');
+              const date = new Date(
+                parseInt(year),
+                parseInt(month) - 1,
+                parseInt(dayStr)
+              );
+
+              return (
+                <div key={index} className="relative mb-8 pl-4 md:pl-6">
+                  <div className="absolute w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full -left-[7px] md:-left-[9px] top-1" />
+
+                  <div className="text-lg md:text-xl font-bold text-primary mb-3">
+                    {date.toLocaleDateString('pt-BR', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                      timeZone: 'America/Sao_Paulo'
+                    })}
+                  </div>
+
+                  <div className="space-y-4">
+                    {day.events.map((event, eventIndex) => (
+                      <div key={eventIndex} className="flex gap-3">
+                        <div className="w-24 md:w-32 text-sm md:text-base text-primary font-medium">
+                          <div className="flex flex-col md:flex-row gap-1">
+                            <time dateTime={event.startTime}>
+                              {new Date(`2000-01-01T${event.startTime}`).toLocaleTimeString('pt-BR', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: false
+                              })}
+                            </time>
+                            {event.endTime && (
+                              <>
+                                <span className="inline">–</span>
+                                <time dateTime={event.endTime}>
+                                  {new Date(`2000-01-01T${event.endTime}`).toLocaleTimeString('pt-BR', {
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    hour12: false
+                                  })}
+                                </time>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex-1 border-l-2 border-gray-200 pl-3">
+                          <h3 className="text-base md:text-lg font-medium text-gray-800">
+                            {event.title}
+                          </h3>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
-        
-         {/* Donation Section */}
-<section id="donate" className="space-y-8">
-  <h2 className="text-2xl md:text-3xl font-bold">Apoie a Campanha</h2>
-  <Card className="p-6">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Left Column */}
-      <div className="space-y-4">
-        <h3 className="text-xl md:text-2xl font-bold">Doações Bancárias</h3>
-        <p className="text-muted-foreground">
-          Sua contribuição ajuda a fortalecer nossa campanha
-        </p>
-        <div className="space-y-2">
-          <p className="font-medium">Dados Bancários:</p>
-          <div className="space-y-1 text-sm">
-            <p>Banco: 001 - Banco do Brasil</p>
-            <p>Favorecido: Comitê Rosane Cuber 2025</p>
-            <p>CNPJ: 12.345.678/0001-90</p>
-            <p className="font-mono">Agência: 1234-5</p>
-            <p className="font-mono">Conta Corrente: 98765-4</p>
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          * Doações de pessoas jurídicas devem seguir a legislação eleitoral
-        </p>
-      </div>
+        {/* Donation Section */}
+        <section id="donate" className="space-y-8">
+          <h2 className="text-2xl md:text-3xl font-bold">Apoie nossa Campanha</h2>
+          <Card className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left Column */}
+              <div className="space-y-4">
+                <h3 className="text-xl md:text-2xl font-bold">Dados Bancários</h3>
+                <p className="text-muted-foreground">
+                  Sua contribuição ajuda a fortalecer nossa campanha
+                </p>
+                <div className="space-y-2">
+                  <p className="font-medium">Dados Bancários:</p>
+                  <div className="space-y-1 text-sm">
+                    <p>Banco: 260 - Nu Pagamentos S.A. – Instituição de Pagamento</p>
+                    {/* <p>Favorecido: Comitê Rosane Cuber 2025</p>
+                    <p>CNPJ: 12.345.678/0001-90</p> */}
+                    <p className="font-bold">Agência: 0001</p>
+                    <p className="font-bold">Conta Corrente: 962623324-3</p>
+                  </div>
+                </div>
+                {/* <p className="text-xs text-muted-foreground">
+                  * Doações de pessoas jurídicas devem seguir a legislação eleitoral
+                </p> */}
+              </div>
 
-      {/* Right Column */}
-      <div className="space-y-4">
-        <h3 className="text-xl md:text-2xl font-bold">Doação via PIX</h3>
-        <div className="aspect-square max-w-[300px] mx-auto bg-gray-100 rounded-lg overflow-hidden">
-          <Image
-            src="/pix-qrcode.png"
-            alt="QR Code PIX"
-            width={400}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <p className="text-center text-sm text-muted-foreground">
-          Escaneie o QR Code usando seu aplicativo bancário
-        </p>
-      </div>
-    </div>
-  </Card>
-</section>
+              {/* Right Column */}
+              <div className="space-y-4">
+                <h3 className="text-xl md:text-2xl font-bold">Doação via Pix</h3>
+                <div className="aspect-square max-w-[300px] mx-auto bg-gray-100 rounded-lg overflow-hidden">
+                  <Image
+                    src="/pix-qrcode.png"
+                    alt="QR Code PIX"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-center text-sm text-muted-foreground">
+                  Escaneie o QR Code usando seu aplicativo de banco
+                </p>
+              </div>
+            </div>
+          </Card>
+        </section>
 
         {/* Contact Section */}
         <section id="contact" className="space-y-8">
@@ -237,6 +303,6 @@ export default function CampaignPage() {
           </div>
         </section>
       </main>
-    </div>
+    </div >
   );
 }
