@@ -23,17 +23,18 @@ export function About() {
                     <div className="flex-1 space-y-4 md:space-y-6 text-white">
                         <h2 className="text-2xl md:text-3xl font-bold">Sobre a candidata:</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                            <Button
-                                className="bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 mt-2"
-                                asChild
-                            >
-                                <Link className="font-medium text-white" href="/documents/apresentação.pdf" target="_blank">
-                                    Carta de apresentação
-                                </Link>
-                            </Button>
 
                             <Button
-                                className="bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 mt-2"
+                                className="w-full bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 h-14 text-base md:text-lg"
+                                asChild
+                            >
+                                <Link href="/documents/apresentação.pdf" target="_blank">
+                                    <span className="md:hidden">Carta de<br />Apresentação</span>
+                                    <span className="hidden md:inline">Carta de Apresentação</span>
+                                </Link>
+                            </Button>
+                            <Button
+                                className="w-full bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 h-14 text-base md:text-lg"
                                 asChild
                             >
                                 <Link href="/documents/memorial.pdf" target="_blank">
