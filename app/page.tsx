@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
+import { CampaignPromises } from "@/components/campaign-promises";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -60,25 +61,9 @@ export default function CampaignPage() {
 
         <About />
 
-        {/* Campaign Promises */}
-        <section className="space-y-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Compromissos</h2>
-          <ol className="space-y-4 md:space-y-6 list-none pl-0">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <li key={num} className="flex gap-3 md:gap-4 items-start">
-                <div className="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary text-white text-sm md:text-base font-bold">
-                  {num}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base md:text-lg font-medium">Compromisso {num}</h3>
-                  <p className="text-sm md:text-base text-gray-600">Descrição do Compromisso...</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
+        <CampaignPromises />
 
-        {/* Program Section */}
+        {/* Program Section
         <section id="program" className="space-y-8">
           <h2 className="text-2xl md:text-3xl font-bold">Programa de Gestão</h2>
           <Card>
@@ -102,7 +87,7 @@ export default function CampaignPage() {
               </Button>
             </CardContent>
           </Card>
-        </section>
+        </section> */}
 
         {/* Schedule Timeline */}
         <section id="schedule" className="space-y-8">
@@ -248,7 +233,7 @@ export default function CampaignPage() {
         {/* Contact Section */}
         <section id="contact" className="space-y-8">
           <h2 className="text-2xl md:text-3xl font-bold">Entre em contato</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-3 md:space-y-4">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 md:w-5 md:h-5" />
@@ -281,7 +266,7 @@ export default function CampaignPage() {
                 </Link>
               </Button>
             </div>
-          </div>
+          </div> */}
         </section>
       </main>
     </div >
