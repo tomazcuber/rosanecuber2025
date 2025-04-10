@@ -2,6 +2,7 @@
   "name": "rosanecuber2025",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tomazcuber.github.io/rosanecuber2025",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
