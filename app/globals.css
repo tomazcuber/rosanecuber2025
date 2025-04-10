@@ -32,7 +32,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary: var(--primary-green);
-  --color-primary-foreground: oklch(0.984 0.003 247.858)
+  --color-primary-foreground: oklch(0.984 0.003 247.858);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);

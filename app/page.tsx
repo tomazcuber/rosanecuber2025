@@ -181,38 +181,48 @@ export default function CampaignPage() {
                   </div>
 
                   <div className="space-y-4">
-                    {day.events.map((event, eventIndex) => (
-                      <div key={eventIndex} className="flex gap-3">
-                        <div className="w-24 md:w-32 text-sm md:text-base text-primary font-medium">
-                          <div className="flex flex-col md:flex-row gap-1">
-                            <time dateTime={event.startTime}>
-                              {new Date(`2000-01-01T${event.startTime}`).toLocaleTimeString('pt-BR', {
-                                hour: '2-digit',
-                                minute: '2-digit',
-                                hour12: false
-                              })}
-                            </time>
-                            {event.endTime && (
-                              <>
-                                <span className="inline">–</span>
-                                <time dateTime={event.endTime}>
-                                  {new Date(`2000-01-01T${event.endTime}`).toLocaleTimeString('pt-BR', {
-                                    hour: '2-digit',
-                                    minute: '2-digit',
-                                    hour12: false
-                                  })}
-                                </time>
-                              </>
-                            )}
+                    {day.events.map((event, eventIndex) => {
+                      interface Event {
+                        startTime: string;
+                        endTime?: string; // Make endTime optional
+                        title: string;
+                      }
+
+                      const scheduleEvent = event as Event;
+
+                      return (
+                        <div key={eventIndex} className="flex gap-3">
+                          <div className="w-24 md:w-32 text-sm md:text-base text-primary font-medium">
+                            <div className="flex flex-col md:flex-row gap-1">
+                              <time dateTime={scheduleEvent.startTime}>
+                                {new Date(`2000-01-01T${scheduleEvent.startTime}`).toLocaleTimeString('pt-BR', {
+                                  hour: '2-digit',
+                                  minute: '2-digit',
+                                  hour12: false
+                                })}
+                              </time>
+                              {scheduleEvent.endTime && (
+                                <>
+                                  <span className="inline">–</span>
+                                  <time dateTime={scheduleEvent.endTime}>
+                                    {new Date(`2000-01-01T${scheduleEvent.endTime}`).toLocaleTimeString('pt-BR', {
+                                      hour: '2-digit',
+                                      minute: '2-digit',
+                                      hour12: false
+                                    })}
+                                  </time>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex-1 border-l-2 border-gray-200 pl-3">
+                            <h3 className="text-base md:text-lg font-medium text-gray-800">
+                              {event.title}
+                            </h3>
                           </div>
                         </div>
-                        <div className="flex-1 border-l-2 border-gray-200 pl-3">
-                          <h3 className="text-base md:text-lg font-medium text-gray-800">
-                            {event.title}
-                          </h3>
-                        </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 </div>
               );
