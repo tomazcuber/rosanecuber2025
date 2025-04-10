@@ -5,6 +5,7 @@ import { FileText, Mail, Phone, Facebook, Twitter, Linkedin, Youtube, MenuIcon }
 import Image from "next/image";
 import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
+import { Hero } from "@/components/hero";
 
 export default function CampaignPage() {
   return (
@@ -13,11 +14,11 @@ export default function CampaignPage() {
       <header className="sticky top-0 bg-white shadow-sm z-50">
         <div className="container max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <Image
-            src="/campaign-logo.png"
-            alt="Rosane Cuber 2025"
-            width={150}
-            height={50}
-            className="h-8 md:h-12 w-auto"
+            src="/selo_campanha.svg"
+            alt="Selo da Campanha"
+            width={200}
+            height={80}
+            className="h-12 md:h-20 w-auto" // Larger size
           />
 
           {/* Desktop Navigation */}
@@ -52,6 +53,7 @@ export default function CampaignPage() {
             />
           </div>
         </section> */}
+        <Hero />
 
         {/* About Section */}
         <section id="about" className="space-y-8">
