@@ -4,6 +4,7 @@ import { MobileMenu } from "@/components/mobile-menu";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { CampaignPromises } from "@/components/campaign-promises";
+import { Suggestions } from "@/components/suggestion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -36,6 +37,14 @@ export default function CampaignPage() {
             <Button variant="ghost" asChild>
               <Link href="#schedule">Agenda</Link>
             </Button>
+            <Button
+              className="bg-[var(--button-purple)] text-white hover:bg-purple-800 hover:text-white"
+              asChild
+            >
+              <Link href="#suggestions">
+                Sugerir Ideias
+              </Link>
+            </Button>
           </nav>
 
 
@@ -62,6 +71,8 @@ export default function CampaignPage() {
         <About />
 
         <CampaignPromises />
+
+        <Suggestions />
 
         {/* Program Section
         <section id="program" className="space-y-8">
@@ -206,7 +217,7 @@ export default function CampaignPage() {
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                Priorizando o meio ambiente, a campanha será majoritariamente digital. Para garantir o controle e a total transparência dos recursos, foi criada uma conta bancária exclusiva para receber as doações. Ao final, será realizada uma prestação de contas de todos os gastos. Qualquer apoio será bem-vindo!  
+                  Priorizando o meio ambiente, a campanha será majoritariamente digital. Para garantir o controle e a total transparência dos recursos, foi criada uma conta bancária exclusiva para receber as doações. Ao final, será realizada uma prestação de contas de todos os gastos. Qualquer apoio será bem-vindo!
                 </p>
               </div>
 

@@ -24,6 +24,14 @@ export function MobileMenu() {
           <Button variant="ghost" className="w-full justify-center text-lg" asChild>
             <Link href="#schedule">Agenda</Link>
           </Button>
+          <Button
+            className="w-full justify-center text-lg bg-[var(--button-purple)] text-white hover:bg-purple-800"
+            asChild
+          >
+            <Link href="#suggestions">
+              Sugerir Ideias
+            </Link>
+          </Button>
         </div>
       </SheetContent>
     </Sheet>

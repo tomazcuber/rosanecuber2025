@@ -43,6 +43,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-about-teal: var(--about-teal);
   --color-button-purple: var(--button-purple);
+  --color-suggestion-light-blue: var(--suggestion-light-blue);
 }
 
 :root {
@@ -81,6 +82,7 @@
   --primary-green: #95C11F;
   --about-teal: #00A19A;
   --button-purple: #724494;
+  --suggestion-light-blue: #3BBFF0;
 }
 
 .dark {
@@ -151,4 +153,14 @@ html {
   .btn-purple:hover {
     @apply bg-[#5a3670];
   }
+}
+
+@keyframes watermark-move {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.05) translate(20px, 10px); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+.watermark-animate {
+  animation: watermark-move 60s ease-in-out infinite;
 }
