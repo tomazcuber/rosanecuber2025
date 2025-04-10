@@ -126,23 +126,13 @@ export default function CampaignPage() {
               },
             ].map((day, index) => {
               const [year, month, dayStr] = day.date.split('-');
-              const date = new Date(
-                parseInt(year),
-                parseInt(month) - 1,
-                parseInt(dayStr)
-              );
 
               return (
                 <div key={index} className="relative mb-8 pl-4 md:pl-6">
                   <div className="absolute w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full -left-[7px] md:-left-[9px] top-1" />
 
                   <div className="text-lg md:text-xl font-bold text-primary mb-3">
-                    {date.toLocaleDateString('pt-BR', {
-                      day: '2-digit',
-                      month: '2-digit',
-                      year: 'numeric',
-                      timeZone: 'America/Sao_Paulo'
-                    })}
+                    {`${dayStr}/${month}/${year}`}
                   </div>
 
                   <div className="space-y-4">
