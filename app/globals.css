@@ -41,6 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-about-teal: var(--about-teal);
+  --color-button-purple: var(--button-purple);
 }
 
 :root {
@@ -77,6 +79,8 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --primary-green: #95C11F;
+  --about-teal: #00A19A;
+  --button-purple: #724494;
 }
 
 .dark {
@@ -136,4 +140,15 @@ html {
   content: '';
   @apply absolute left-0 w-px h-full bg-gray-200;
   left: -1px;
+}
+
+@layer components {
+  .btn-purple {
+    @apply bg-[var(--button-purple)] text-white border-2 border-white rounded-lg;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-purple:hover {
+    @apply bg-[#5a3670];
+  }
 }

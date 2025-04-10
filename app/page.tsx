@@ -1,11 +1,14 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { FileText, Mail, Phone, Facebook, Twitter, Linkedin, Youtube, MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
 import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { FileText, Mail, Phone, Facebook, Twitter, Linkedin, Youtube, MenuIcon } from "lucide-react";
+
+
 
 export default function CampaignPage() {
   return (
@@ -55,41 +58,7 @@ export default function CampaignPage() {
         </section> */}
         <Hero />
 
-        {/* About Section */}
-        <section id="about" className="space-y-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Sobre a Candidata</h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-3xl">
-            Conheça nosso material:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card>
-              <CardContent className="flex items-center gap-4 p-4">
-                <FileText className="text-primary" />
-                <div>
-                  <h3 className="font-medium">Carta de Apresentação</h3>
-                  <Button variant="link" className="h-auto p-0" asChild>
-                    <Link href={`/documents/apresentação.pdf`} target="_blank">
-                      Baixar PDF
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex items-center gap-4 p-4">
-                <FileText className="text-primary" />
-                <div>
-                  <h3 className="font-medium">Outro documento</h3>
-                  <Button variant="link" className="h-auto p-0" asChild>
-                    <Link href={`/documents/paper.pdf`} target="_blank">
-                      Baixar PDF
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <About />
 
         {/* Campaign Promises */}
         <section className="space-y-8">
@@ -251,9 +220,9 @@ export default function CampaignPage() {
                     <p className="font-bold">Conta Corrente: 962623324-3</p>
                   </div>
                 </div>
-                {/* <p className="text-xs text-muted-foreground">
-                  * Doações de pessoas jurídicas devem seguir a legislação eleitoral
-                </p> */}
+                <p className="text-xs text-muted-foreground">
+                Priorizando o meio ambiente, a campanha será majoritariamente digital. Para garantir o controle e a total transparência dos recursos, foi criada uma conta bancária exclusiva para receber as doações. Ao final, será realizada uma prestação de contas de todos os gastos. Qualquer apoio será bem-vindo!  
+                </p>
               </div>
 
               {/* Right Column */}
