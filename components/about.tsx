@@ -28,7 +28,7 @@ export function About() {
                                 className="w-full bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 h-14 text-base md:text-lg"
                                 asChild
                             >
-                                <Link href="/documents/apresentação.pdf" target="_blank">
+                                <Link href="/documents/Carta de Apresentação_Rosane Cuber.pdf" target="_blank">
                                     <span className="md:hidden">Carta de<br />Apresentação</span>
                                     <span className="hidden md:inline">Carta de Apresentação</span>
                                 </Link>
@@ -37,7 +37,7 @@ export function About() {
                                 className="w-full bg-[var(--button-purple)] text-white border-2 border-white rounded-lg hover:bg-purple-800 h-14 text-base md:text-lg"
                                 asChild
                             >
-                                <Link href="/documents/memorial.pdf" target="_blank">
+                                <Link href="/documents/Memorial_Rosane Cuber.pdf" target="_blank">
                                     Memorial
                                 </Link>
                             </Button>

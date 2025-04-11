@@ -111,7 +111,7 @@ export default function CampaignPage() {
                   {
                     startTime: "15:00",
                     endTime: "16:30",
-                    title: "Lançamento da Campanha no Trenzinho"
+                    title: "Lançamento da Campanha no no auditório do CAVIF"
                   }
                 ]
               },
@@ -216,7 +216,7 @@ export default function CampaignPage() {
                 <h3 className="text-xl md:text-2xl font-bold">Doação via Pix</h3>
                 <div className="aspect-square max-w-[300px] mx-auto bg-gray-100 rounded-lg overflow-hidden">
                   <Image
-                    src="/pix-qrcode.png"
+                    src="/qrcodepix.png"
                     alt="QR Code PIX"
                     width={400}
                     height={400}
