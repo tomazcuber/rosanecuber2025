@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { FileText, Mail, Phone, Facebook, Twitter, Linkedin, Youtube, MenuIcon } from "lucide-react";
+import { Schedule } from "@/components/schedule";
 
 
 
@@ -100,90 +101,7 @@ export default function CampaignPage() {
           </Card>
         </section> */}
 
-        {/* Schedule Timeline */}
-        <section id="schedule" className="space-y-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Agenda da Campanha</h2>
-          <div className="relative pl-6 md:pl-8 border-l-2 border-primary">
-            {[
-              {
-                date: "2025-04-10",
-                events: [
-                  {
-                    startTime: "15:00",
-                    endTime: "16:30",
-                    title: "Lançamento da Campanha no no auditório do CAVIF"
-                  }
-                ]
-              },
-              {
-                date: "2025-05-09",
-                events: [
-                  {
-                    startTime: "18:00",
-                    title: "Fim do período eleitoral"
-                  }
-                ]
-              },
-            ].map((day, index) => {
-              const [year, month, dayStr] = day.date.split('-');
-
-              return (
-                <div key={index} className="relative mb-8 pl-4 md:pl-6">
-                  <div className="absolute w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full -left-[7px] md:-left-[9px] top-1" />
-
-                  <div className="text-lg md:text-xl font-bold text-primary mb-3">
-                    {`${dayStr}/${month}/${year}`}
-                  </div>
-
-                  <div className="space-y-4">
-                    {day.events.map((event, eventIndex) => {
-                      interface Event {
-                        startTime: string;
-                        endTime?: string; // Make endTime optional
-                        title: string;
-                      }
-
-                      const scheduleEvent = event as Event;
-
-                      return (
-                        <div key={eventIndex} className="flex gap-3">
-                          <div className="w-24 md:w-32 text-sm md:text-base text-primary font-medium">
-                            <div className="flex flex-col md:flex-row gap-1">
-                              <time dateTime={scheduleEvent.startTime}>
-                                {new Date(`2000-01-01T${scheduleEvent.startTime}`).toLocaleTimeString('pt-BR', {
-                                  hour: '2-digit',
-                                  minute: '2-digit',
-                                  hour12: false
-                                })}
-                              </time>
-                              {scheduleEvent.endTime && (
-                                <>
-                                  <span className="inline">–</span>
-                                  <time dateTime={scheduleEvent.endTime}>
-                                    {new Date(`2000-01-01T${scheduleEvent.endTime}`).toLocaleTimeString('pt-BR', {
-                                      hour: '2-digit',
-                                      minute: '2-digit',
-                                      hour12: false
-                                    })}
-                                  </time>
-                                </>
-                              )}
-                            </div>
-                          </div>
-                          <div className="flex-1 border-l-2 border-gray-200 pl-3">
-                            <h3 className="text-base md:text-lg font-medium text-gray-800">
-                              {event.title}
-                            </h3>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+       <Schedule />
 
         {/* Donation Section */}
         <section id="donate" className="space-y-8">
